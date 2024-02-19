@@ -1,0 +1,340 @@
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: #fff;
+    align-items: left;
+}
+
+header {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-button {
+    color: #000;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #fff;
+    margin-right: 90px;
+    border:none;
+}
+
+.options-container {
+    margin-top: 130px;
+    margin-left: 100px;
+    width: 576px;
+    display: flex;
+    flex-direction: column;
+    align-items: left; /* Це розташовує всі елементи по центру по горизонталі */
+}
+
+.choose-button {
+    margin-bottom: 10px; 
+    align-items: center;
+    width: 100%;
+    display: flex;
+   
+}
+
+.scale-container {
+    width: 70%;
+}
+
+.inputs {
+    display: flex;
+    justify-content: left;
+    margin-left: 10%;
+}
+
+.input-scale {
+    -webkit-appearance: none;
+    width: 70%;
+    height: 16px; /* Визначає висоту елемента, щоб збігалась з висотою повзунка */
+}
+
+.input-scale::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: #57a057;
+    border: 2px solid #000;
+    border-radius: 50px;
+    margin-top: -8px; /* Вирівнює вертикально по центру */
+    cursor: pointer;
+}
+
+.input-scale::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000;
+    margin-top: -8px;
+    cursor: pointer;
+}
+
+.input-scale::-ms-thumb {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000;
+    margin-top: -8px;
+    cursor: pointer;
+}
+
+.input-scale::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    background: #000;
+    border-radius: 1px;
+}
+
+.input-scale::-moz-range-track {
+    width: 100%;
+    height: 2px;
+    background: #000;
+    border-radius: 1px;
+}
+
+.input-scale::-ms-track {
+    width: 100%;
+    height: 2px;
+    background: #000;
+    border-radius: 1px;
+}
+
+.input-type {
+    width: 10%;
+    text-align: center;
+    margin-left: 5px;
+    border-radius: 10px;
+}
+
+.option-button-container {
+    margin-top: 70px; 
+    display: flex;
+    justify-content: left;
+    
+}
+
+.option-button {
+    width: 120px;
+    height: 50px;
+    background-color: #000;
+    margin-left: 10%;
+    border-radius: 36px;
+    border: 3px solid #000;
+    color: #ffffff;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.final-button-container {
+    margin-top: 100px; 
+    display: inline-flex;
+    justify-content: left;
+    margin-left: 10%;
+}
+
+.final-button {
+    display: inline-flex;
+    padding: 20px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10%;
+    border-radius: 32px;
+    border: 3px solid #000;
+    width: 180px;
+    background-color: #FFF;
+}
+
+.koch-button {
+    display: flex;
+    width: 205px;
+    padding: 20px 40px;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 36px 0px 0px 36px;
+    background: #000;
+    color: #FFF;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+}
+
+.tgz-button {
+    background-color: #FFF;
+    display: flex;
+    width: 205px;
+    padding: 20px 40px;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 0px 36px 36px 0px;
+    border: 3px solid #000;
+    color: #000;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+}
+
+.container {
+    text-align: center;
+}
+
+canvas {
+    position: absolute;
+    top: 140px;
+    left: 600px;
+    border: 1px solid black;
+}
+
+.canvas-container {
+    text-align: center;
+}
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 50%;
+    margin: 10% auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.instance-child {
+    position: absolute;
+    top: calc(50% - 540px);
+    left: calc(50% - 960px);
+    background-color: var(--color-dimgray);
+    width: 1920px;
+    height: 1080px;
+    opacity: 0.7;
+  }
+  .cancel-1-icon {
+    position: absolute;
+    top: 40px;
+    right: 49px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  .line-of-koch {
+    position: absolute;
+    top: 40px;
+    left: calc(50% - 356px);
+    font-weight: 800;
+  }
+  .the-universal-closed {
+    margin-block-start: 0;
+    margin-block-end: 16px;
+  }
+  .these-fractals-are {
+    margin: 0;
+  }
+  .the-universal-closed-container1 {
+    line-break: anywhere;
+    width: 100%;
+  }
+  .the-universal-closed-container {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 658px;
+  }
+  .the-universal-closed-line-of-k-wrapper {
+    position: absolute;
+    top: 178px;
+    left: 693px;
+    width: 658px;
+    height: 585px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-5xl);
+  }
+  .thesis-amico-2-icon {
+    position: absolute;
+    top: 148px;
+    left: 92px;
+    width: 534px;
+    height: 534px;
+    object-fit: cover;
+  }
+  .cancel-1-parent {
+    position: absolute;
+    top: calc(50% - 400px);
+    left: calc(50% - 700px);
+    background-color: var(--color-white);
+    width: 1400px;
+    height: 800px;
+    overflow: hidden;
+  }
+  .rectangle-parent {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    text-align: center;
+    font-size: var(--font-size-77xl);
+    color: var(--color-black);
+    font-family: var(--font-helveticaneuecyr);
+  }
+  
+  body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-helveticaneuecyr: HelveticaNeueCyr;
+  
+    /* font sizes */
+    --font-size-5xl: 20px;
+    --font-size-77xl: 96px;
+  
+    /* Colors */
+    --color-white: #fff;
+    --color-black: #000;
+    --color-dimgray: #515151;
+  }

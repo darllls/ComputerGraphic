@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фрактал</title>
+    <link rel="stylesheet" href="tgz.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
+    <script src="tgz.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navigation-buttons">
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\Fractals\\Koch\\koch.html')">Fractal</button>
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\ColorScheme\\ColorScheme.html')">Color</button>
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\Geometry\\Geometry.html')">Geometry</button>
+        </div>
+    </header>
+
+    <div class="canvas-container">
+        <canvas id="canvas" width="400" height="400"></canvas> 
+    </div>
+
+    <div class="options">
+        <div class="choose-button">
+            <button class="koch-button" onclick="openPage('D:\\Мої документи\\навчання\\3 курс\\КГ\\ComputerGraphicFinal\\Fractals\\Koch\\koch.html')">Koch</button>
+            <button class="tgz-button" onclick="openPage('D:\\Мої документи\\навчання\\3 курс\\КГ\\ComputerGraphicFinal\\Fractals\\Tgz\\tgz.html')">TG (Z)</button>
+        </div>
+        <label for="iterations">Кількість ітерацій:</label>
+        <input type="number" id="iterations" value="100">
+        <br>
+        <label for="scale">Масштаб:</label>
+        <input type="number" id="scale" value="5">
+        <br>
+        <label for="fractalType">Тип фракталу:</label>
+        <select id="fractalType">
+            <option value="tgz">tg(z)</option>
+            <option value="tgz2">z*tg(z)</option>
+        </select>
+        <br>
+        <label for="colorScheme">Кольорова схема:</label>
+        <select id="colorScheme">
+            <option value="purple-white">Фіолетово-чорна кольорова схема</option>
+            <option value="green-black">Зелено-чорна кольорова схема</option>
+            <option value="salad-brown">Салатово-коричнева кольорова схема</option>
+        </select>
+        <br>
+        <button class="draw" onclick="drawFractal()">DO IT!</button>
+        <div class="final-button-container">
+            <button class="final-button" id="openPopup">Learn more</button>
+        </div>
+
+        <div id="popupContainer" class="popup">
+            <div class="rectangle-parent">
+                <div class="instance-child"></div>
+                <div class="cancel-1-parent">
+                  <img
+                    class="cancel-1-icon"
+                    alt=""
+                    src="cancel.png"
+                    id="cancel1Image"
+                    onclick="closePopup()"
+                  />
+          
+                  <div class="fractal">FRACTAL</div>
+                  <div class="two-distinct-algebraic-fractal-wrapper">
+                    <div class="two-distinct-algebraic-container">
+                      <span class="two-distinct-algebraic-container1">
+                        <p class="two-distinct-algebraic">
+                          Two distinct algebraic fractals that utilize the trigonometric
+                          function tg(z) offer an enchanting mathematical exploration.
+                          These fractals generate intricate and self-replicating patterns,
+                          including captivating shapes like spirals, branches, and
+                          intricate tendrils, exhibiting self-similarity at various
+                          scales. As you delve deeper or zoom out, you'll encounter
+                          similar structures repeating endlessly, providing a profound
+                          sense of infinite complexity.
+                        </p>
+                        <p class="fractals-born-from">
+                          Fractals born from the use of tg(z) in algebraic equations are
+                          celebrated for their dynamic nature, enabling real-time
+                          exploration and creative expression. Artists, mathematicians,
+                          and scientists alike draw inspiration from the ability of these
+                          fractals to seamlessly merge mathematical elegance with
+                          mesmerizing visual art. They stand as a testament to the
+                          fascinating interplay between mathematics and the natural world,
+                          offering an expansive canvas for exploration and artistic
+                          expression.
+                        </p>
+                      </span>
+                    </div>
+                  </div>
+                  <img
+                    class="thesis-amico-1-icon"
+                    alt=""
+                    src="learn.png"
+                  />
+                </div>
+              </div>
+    </div>
+
+    
+    
+    <script>
+        function openPage(page) {
+            window.location.href = page;
+        }
+        
+        document.getElementById('openPopup').addEventListener('click', openPopup);
+
+        function openPopup() {
+            document.getElementById('popupContainer').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popupContainer').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
+
+
+

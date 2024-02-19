@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: #fff;
+    align-items: left;
+    margin-left: 5%;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 100px;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-button {
+    color: #000;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #fff;
+    margin-right: 90px;
+    border:none;
+}
+
+.saturation {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    margin-left: 60px;
+}
+
+.roll {
+    width:250px;
+    background-color: #000;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 130px;
+}
+
+.input-text {
+    background-color: white;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 190px;
+}
+
+.input-text input {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+    font-size: 15px;
+    text-decoration: underline;
+    justify-content: center;
+}
+
+.input-text input[type="file"]::-webkit-file-upload-button,
+.input-text input[type="file"]::-webkit-file-upload-button,
+.input-text input[type="file"]::-webkit-file-upload-button {
+    display: none;
+}
+
+.canvas-container{
+    width:820px;
+    position: absolute;
+    top: 200px;
+    left: 550px;
+}
+
+.final {
+    position: absolute;
+    top: 400px;
+    left: 50px;
+    width: 400;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin-left: 10px;
+    width: 190px;
+    height: 50px;
+    background-color: #fff;
+    color: #000;
+    border: #000 2px, solid;
+    border-radius: 32px;
+}
+
+canvas {
+    border: 1px solid black;
+}
+
+#colorInfo {
+    margin-top: 10px;
+}
+
+
+
+
+/* styles.css */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 50%;
+    margin: 10% auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.instance-child {
+    position: absolute;
+    top: calc(50% - 540px);
+    left: calc(50% - 960px);
+    background-color: var(--color-dimgray);
+    width: 1920px;
+    height: 1080px;
+    opacity: 0.7;
+  }
+  .cancel-1-icon {
+    position: absolute;
+    top: 40px;
+    right: 49px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  .color-models {
+    position: absolute;
+    top: 40px;
+    left: calc(50% - 404px);
+    font-weight: 800;
+  }
+  .color-models-like {
+    margin-block-start: 0;
+    margin-block-end: 16px;
+  }
+  .incorporating-these-color {
+    margin: 0;
+  }
+  .color-models-like-container1 {
+    line-break: anywhere;
+    width: 100%;
+  }
+  .color-models-like-container {
+    position: absolute;
+    top: -12px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 658px;
+    height: 610px;
+  }
+  .color-models-like-cmyk-cyan-wrapper {
+    position: absolute;
+    top: 165px;
+    left: 693px;
+    width: 658px;
+    height: 585px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-5xl);
+  }
+  .thesis-amico-1-icon {
+    position: absolute;
+    top: 164px;
+    left: 95px;
+    width: 534px;
+    height: 534px;
+    object-fit: cover;
+  }
+  .cancel-1-parent {
+    position: absolute;
+    top: calc(50% - 400px);
+    left: calc(50% - 700px);
+    background-color: var(--color-white);
+    width: 1400px;
+    height: 800px;
+    overflow: hidden;
+  }
+  .rectangle-parent {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    text-align: center;
+    font-size: var(--font-size-77xl);
+    color: var(--color-black);
+    font-family: var(--font-helveticaneuecyr);
+  }
+  
+  body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-helveticaneuecyr: HelveticaNeueCyr;
+  
+    /* font sizes */
+    --font-size-5xl: 20px;
+    --font-size-77xl: 96px;
+  
+    /* Colors */
+    --color-white: #fff;
+    --color-black: #000;
+    --color-dimgray: #515151;
+  }
+  

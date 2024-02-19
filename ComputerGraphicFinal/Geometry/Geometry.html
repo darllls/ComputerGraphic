@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Geometry.css">
+    <title>Draw Triangle and Line</title>
+</head>
+<body>
+
+    <header>
+        <div class="navigation-buttons">
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\Fractals\\Koch\\koch.html')">Fractal</button>
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\ColorScheme\\ColorScheme.html')">Color</button>
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\Geometry\\Geometry.html')">Geometry</button>
+        </div>
+    </header>
+
+    <div class="triangle-points">
+        <label for="point1">Point 1:</label>
+        <div class="point">
+            <div class="point-coordinate">X:</div>
+            <input class="point-input" type="text" id="point1X"/>
+            <div class="point-coordinate">Y:</div>
+            <input class="point-input" type="text" id="point1Y"/>
+        </div>
+    </div>
+
+
+    <div class="triangle-points">
+        <label for="point1">Point 2:</label>
+        <div class="point">
+            <div class="point-coordinate">X:</div>
+            <input class="point-input" type="text" id="point2X"/>
+            <div class="point-coordinate">Y:</div>
+            <input class="point-input" type="text" id="point2Y"/>
+        </div>
+    </div>
+
+    <div class="height">
+        <label for="height">Height: </label>
+        <input class="point-input" type="text" id="height">
+    </div>
+
+    <div class="triangle-button-container">
+        <button class="triangle-button" onclick="drawTriangle()">Draw Isosceles Triangle</button>
+    </div>
+
+    <div class="line-points">
+        <label for="point1">Coefficients for line</label>
+        <div class="point">
+            <div class="point-coordinate">A:</div>
+            <input class="point-input" type="text" id="coefficientA">
+            <div class="point-coordinate">B:</div>
+            <input class="point-input" type="text" id="coefficientB">
+            <div class="point-coordinate">C:</div>
+            <input class="point-input" type="text" id="coefficientC">
+            
+        </div>
+        <div class="aa">
+            <button class="line-button" onclick="drawLine()">Draw line</button>
+        </div>
+    </div>
+
+    <div class="reflect">
+        <button class="reflect-button" onclick="reflectTriangle()">DO IT!</button>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="canvas" width="500" height="500"></canvas>
+    </div>
+
+    <div class ="final">
+        <button class="learn-more" id="openPopup">Learn more</button>
+    </div>
+
+    <div id="popupContainer" class="popup">
+    <div class="rectangle-parent">
+      <div class="instance-child"></div>
+      <div class="cancel-1-parent">
+        <img
+          class="cancel-1-icon"
+          alt=""
+          src="./cancel.png"
+          id="cancel1Image"
+          onclick="closePopup()"
+        />
+
+        <div class="geometry">GEOMETRY</div>
+        <div class="geometry-particularly-the-dyn-wrapper">
+          <div class="geometry-particularly-the-container">
+            <span class="geometry-particularly-the-container1">
+              <p class="geometry-particularly-the">
+                Geometry, particularly the dynamic movement of isosceles
+                triangles within fractals, introduces an engaging dimension to
+                the world of visual art and mathematical exploration. When these
+                triangles are set in motion within the intricate patterns of
+                fractals, they introduce a mesmerizing element of change and
+                transformation, enhancing the overall complexity of the fractal
+                structure.
+              </p>
+              <p class="geometry-particularly-the">
+                The motion of triangles within fractals can represent various
+                mathematical concepts, such as the convergence of geometric
+                series or the chaotic behavior of dynamical systems. It also
+                opens the door to creating animations that unveil the beauty and
+                intricacy of mathematical patterns evolving over time.
+              </p>
+              <p class="artists-and-mathematicians">
+                Artists and mathematicians alike are captivated by the dynamic
+                interplay of geometry and motion within fractals, using them as
+                a canvas to illustrate the harmonious relationship between
+                mathematics and aesthetics. This fusion of geometry and
+                animation within fractals not only showcases the elegance of
+                mathematical principles but also provides a captivating visual
+                experience that invites viewers to explore the world of complex
+                and ever-evolving shapes.
+              </p>
+            </span>
+          </div>
+        </div>
+        <img
+          class="thesis-amico-2-icon"
+          alt=""
+          src="./learn.png"
+        />
+      </div>
+    </div>
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p>This is the pop-up content.</p>
+        </div>
+    </div>
+   
+    
+    <script src="Geometry.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+.instance-child {
+    position: absolute;
+    top: calc(50% - 540px);
+    left: calc(50% - 960px);
+    background-color: var(--color-dimgray);
+    width: 1920px;
+    height: 1080px;
+    opacity: 0.7;
+  }
+  .cancel-1-icon {
+    position: absolute;
+    top: 40px;
+    right: 49px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  .color-models {
+    position: absolute;
+    top: 40px;
+    left: calc(50% - 404px);
+    font-weight: 800;
+  }
+  .color-models-like {
+    margin-block-start: 0;
+    margin-block-end: 16px;
+  }
+  .incorporating-these-color {
+    margin: 0;
+  }
+  .color-models-like-container1 {
+    line-break: anywhere;
+    width: 100%;
+  }
+  .color-models-like-container {
+    position: absolute;
+    top: -12px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 658px;
+    height: 610px;
+  }
+  .color-models-like-cmyk-cyan-wrapper {
+    position: absolute;
+    top: 165px;
+    left: 693px;
+    width: 658px;
+    height: 585px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-5xl);
+  }
+  .thesis-amico-1-icon {
+    position: absolute;
+    top: 164px;
+    left: 95px;
+    width: 534px;
+    height: 534px;
+    object-fit: cover;
+  }
+  .cancel-1-parent {
+    position: absolute;
+    top: calc(50% - 400px);
+    left: calc(50% - 700px);
+    background-color: var(--color-white);
+    width: 1400px;
+    height: 800px;
+    overflow: hidden;
+  }
+  .rectangle-parent {
+    position: relative;
+    width: 100%;
+    height: 1080px;
+    overflow: hidden;
+    text-align: center;
+    font-size: var(--font-size-77xl);
+    color: var(--color-black);
+    font-family: var(--font-helveticaneuecyr);
+  }
+  

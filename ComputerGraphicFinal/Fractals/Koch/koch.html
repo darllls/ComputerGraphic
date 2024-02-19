@@ -1,0 +1,116 @@
+<!DOCTYPE HTML >
+<html>
+    <head>
+        <TITLE>Сніжинка Коха</TITLE>
+        <link rel="stylesheet" type="text/css" href="koch.css">
+        <script type="text/javascript" src="koch.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="navigation-buttons">
+                <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\Fractals\\Koch\\koch.html')">Fractal</button>
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\ColorScheme\\ColorScheme.html')">Color</button>
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\Geometry\\Geometry.html')">Geometry</button>
+            </div>
+        </header>
+
+        <div class="options-container">
+            <div class="choose-button">
+                <button class="koch-button" onclick="">Koch</button>
+                <button class="tgz-button" onclick="openPage('D:\\Мої документи\\навчання\\3 курс\\КГ\\ComputerGraphicFinal\\Fractals\\Tgz\\tgz.html')">TG (Z)</button>
+            </div>
+
+            <div class="scale-container">
+                <div class="inputs">
+                    <div>Scale:</div>
+                    <input class="input-type" type="text" id="qty" value="0">
+                </div>
+                <input class="input-scale" type="range" min="0" max="7" value="0" id="scale" oninput="updateScaleValue()">
+            </div>
+
+            <div class="option-button-container">
+                <input class="option-button" type="button" value="DO IT!" id="btn1" onclick="run();">
+                <input class="option-button" type="button" value="CLEAR" id="btn2" onclick="clearcanvas();">
+            </div>
+
+            <div class="final-button-container">
+                <button class="final-button" id="openPopup">Learn more</button>
+            </div>
+            <div id="popupContainer" class="popup">
+                <div class="rectangle-parent">
+                    <div class="instance-child"></div>
+                    <div class="cancel-1-parent">
+                      <img
+                        class="cancel-1-icon"
+                        alt=""
+                        src="cancel.png"
+                        id="cancel1Image"
+                        onclick="closePopup()"
+                      />
+              
+                      <div class="line-of-koch">LINE OF KOCH</div>
+                      <div class="the-universal-closed-line-of-k-wrapper">
+                        <div class="the-universal-closed-container">
+                          <span class="the-universal-closed-container1">
+                            <p class="the-universal-closed">
+                              The Universal Closed Line of Koch fractal is a fascinating
+                              mathematical construct that produces intricate and visually
+                              captivating patterns. It is defined by a base shape (triangle or
+                              square) and a ratio that subdivides its sides into segments,
+                              creating self-similar and detailed structures.
+                            </p>
+                            <p class="these-fractals-are">
+                              These fractals are commonly used in generating visually striking
+                              backgrounds, textures, and special effects in digital art and
+                              design. They are created through recursive mathematical
+                              operations, resulting in a wide range of dynamic and evolving
+                              patterns. Customization is possible by adjusting parameters like
+                              color schemes, gradients, and the level of detail, making them
+                              versatile tools for creative expression and exploration in the
+                              digital domain. Whether in the context of artistic endeavors or
+                              scientific simulations, the Universal Closed Line of Koch
+                              fractal offers a captivating glimpse into the beauty and
+                              complexity of mathematical patterns.
+                            </p>
+                          </span>
+                        </div>
+                      </div>
+                      <img
+                        class="thesis-amico-2-icon"
+                        alt=""
+                        src="learn.png"
+                      />
+                    </div>
+                  </div>
+        </div>
+
+        
+        <div class="canvas-container">
+            <canvas height='500' width='700' id='canvas1'></canvas>
+        </div>
+
+
+
+        <script>
+             function openPage(page) {
+        window.location.href = page;
+    }
+
+            function updateScaleValue() {
+                var scaleInput = document.getElementById("qty");
+                var scaleSlider = document.getElementById("scale");
+                scaleInput.value = scaleSlider.value;
+            }
+
+        document.getElementById('openPopup').addEventListener('click', openPopup);
+
+        function openPopup() {
+            document.getElementById('popupContainer').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popupContainer').style.display = 'none';
+        }
+        </script>
+    </body>
+</html>

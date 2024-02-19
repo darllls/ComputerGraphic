@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractals</title>
+    <link rel="stylesheet" type="text/css" href="Theory.css">
+</head>
+<body>
+
+<header>
+    <div class="navigation-buttons">
+        <button class="main-button" onclick="openPage('.\\Fractals\\MainFractal.html')">Fractal</button>
+        <button onclick="openPage('.\\ColorScheme\\ColorScheme.html')">Color</button>
+        <button onclick="openPage('.\\Geometry\\Geometry.html')">Geometry</button>
+    </div>
+</header>
+
+<div class="big-header">
+    <h1>Dive into Fractals, Colors and Geometry</h1>
+</div>
+<div class="small-header">
+    <h2>explore colorful transformations and dynamic shapes</h2>
+</div>
+
+<div class="theory-text">
+    <p>This application is a versatile tool that seamlessly combines mathematical intricacy with artistic creativity. Its primary functions encompass the generation of captivating <b>fractal images</b>, including the visually striking "Universal Closed Line of Koch" fractal. Users have the freedom to explore various facets of these fractals, adjusting parameters such as the base figure (triangle, square) and the ratio that defines the division of the sides of this figure into segments (resulting in a midsegment equilateral triangle without a base). Users can generate images for different numbers of iterations, providing endless artistic possibilities.</p>
+    <p>In addition to fractal art, the app also features essential color models, namely <b>CMYK</b> (Cyan, Magenta, Yellow, Key/Black) and <b>HSV</b> (Hue, Saturation, Value). This allows artists and designers to exercise precise control over colors, facilitating the creation of vibrant and harmonious color schemes. For instance, users can effortlessly fine-tune the saturation of the purple color and its complementary color, resulting in dynamic and visually appealing color variations</p>
+    <p>Furthermore, the app offers a unique animation function. Users can input the coordinates of the base of an <b>isosceles triangle</b> and its height, allowing for the creation of a dynamic animation along the trajectory defined by the equation Ax + By + C = 0, where the coefficients A, B, and C are user-defined. This adds an element of motion and transformation to geometric elements within fractal art, making it a truly immersive and dynamic experience.</p>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" width="289" height="953" viewBox="0 0 289 953" fill="none">
+    <path d="M276.214 643.503C185.245 498.886 -106.645 1347.35 65.4439 682.001C237.533 16.6532 562.863 76.3591 568.504 389.496C44.1804 362.401 118.254 796.31 118.523 318.979C118.738 -62.8867 273.068 -9.31124 350.206 65.2096" stroke="url(#paint0_linear_8_770)" stroke-width="24" stroke-linecap="round"/>
+    <defs>
+      <linearGradient id="paint0_linear_8_770" x1="323.994" y1="634.994" x2="-45.1156" y2="265.884" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#8F96DC" stop-opacity="0.6"/>
+        <stop offset="1" stop-color="#F02EA9" stop-opacity="0.28"/>
+      </linearGradient>
+    </defs>
+  </svg>
+<script>
+    function openPage(page) {
+        window.location.href = page;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="ColorScheme.css">
+    <title>Кольорні моделі: CMYK і HSV</title>
+
+</head>
+<body>
+
+    <header>
+        <div class="navigation-buttons">
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\Fractals\\Koch\\koch.html')">Fractal</button>
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\ColorScheme\\ColorScheme.html')">Color</button>
+            <button class="nav-button" onclick="openPage('D:\\Univer\\5 сем\\КГ\\Final Proj\\ComputerGraphicFinal\\Geometry\\Geometry.html')">Geometry</button>
+        </div>
+    </header>
+
+    <div class="saturation">
+        <label for="saturation">Насиченість пурпурового кольору:</label>
+    </div>
+    <div>
+        <input class="roll" type="range" min="0" max="100" value="50" id="saturation">
+    </div>
+
+    <div class="input-text">
+        <input type="file" id="imageUpload" accept="image/*">
+    </div>
+    
+    <div class="canvas-container">
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <canvas id="originalCanvas" width="400" height="400"></canvas>
+    </div>
+
+    <div class="info" id="colorInfo"></div>
+
+    <div class ="final">
+        <button class="learn-more" id="openPopup">Learn more</button>
+        <button class="save" id="save">Save</button>
+    </div>
+
+    <div id="popupContainer" class="popup">
+        <div class="rectangle-parent">
+            <div class="instance-child"></div>
+            <div class="cancel-1-parent">
+              <img
+                class="cancel-1-icon"
+                alt=""
+                src="./cancel.png"
+                id="cancel1Image"
+                onclick="closePopup()"
+              />
+      
+              <div class="color-models">COLOR MODELS</div>
+              <div class="color-models-like-cmyk-cyan-wrapper">
+                <div class="color-models-like-container">
+                  <span class="color-models-like-container1">
+                    <p class="color-models-like">
+                      Color models like CMYK (Cyan, Magenta, Yellow, Key/Black) and
+                      HSV (Hue, Saturation, Value) play pivotal roles in the realm of
+                      digital design and printing. These models enable precise color
+                      control across a variety of applications.
+                    </p>
+                    <p class="color-models-like">
+                      HSV offers an intuitive method for color manipulation. Hue
+                      dictates the color type, saturation regulates its intensity, and
+                      value manages the brightness. It's a preferred choice for
+                      artists and designers seeking to craft visually appealing and
+                      harmonious color palettes.
+                    </p>
+                    <p class="color-models-like">
+                      In contrast, CMYK is indispensable in the printing industry,
+                      blending cyan, magenta, yellow, and black inks to achieve a
+                      broad spectrum of colors. Printers rely on this model to ensure
+                      accurate color reproduction in materials such as magazines and
+                      brochures.
+                    </p>
+                    <p class="incorporating-these-color">
+                      Incorporating these color models into fractal generation allows
+                      for the creation of captivating and customizable fractal art.
+                      These models facilitate precise adjustments to color gradients,
+                      delivering a vibrant and dynamic visual experience within
+                      fractal patterns. Whether for digital artwork or printing
+                      projects, a deep understanding of and proficiency with HSL and
+                      CMYK in fractal design open up a realm of creative
+                      possibilities.
+                    </p>
+                  </span>
+                </div>
+              </div>
+              <img
+                class="thesis-amico-1-icon"
+                alt=""
+                src="./learn.png"
+              />
+            </div>
+          </div>
+    </div>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const originalCanvas = document.getElementById('originalCanvas');
+        const originalCtx = originalCanvas.getContext('2d');
+        const saturationInput = document.getElementById('saturation');
+        const imageUpload = document.getElementById('imageUpload');
+        const colorInfo = document.getElementById('colorInfo');
+
+        let img = new Image();
+        let isSelecting = false;
+        let startX, startY, endX, endY;
+
+        document.getElementById('openPopup').addEventListener('click', openPopup);
+
+        function openPopup() {
+            document.getElementById('popupContainer').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popupContainer').style.display = 'none';
+        }
+
+             function openPage(page) {
+        window.location.href = page;
+             }
+
+
+        imageUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                img.src = reader.result;
+            }
+
+            reader.readAsDataURL(file);
+        });
+
+        img.onload = function () {
+            updateCanvas(saturationInput.value);
+        }
+
+        function updateCanvas(saturation) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            originalCtx.clearRect(0, 0, originalCanvas.width, originalCanvas.height);
+
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            originalCtx.drawImage(img, 0, 0, originalCanvas.width, originalCanvas.height);
+
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imageData.data;
+
+            for (let i = 0; i < data.length; i += 4) {
+                const r = data[i];
+                const g = data[i + 1];
+                const b = data[i + 2];
+
+                if (isPurple(r, g, b) && isInsideSelection(i)) {
+                    const cmyk = rgbToCmyk(r, g, b);
+                    const saturatedCmyk = adjustSaturation(cmyk, saturation);
+
+                    const [newR, newG, newB] = cmykToRgb(saturatedCmyk);
+
+                    data[i] = newR;
+                    data[i + 1] = newG;
+                    data[i + 2] = newB;
+                }
+            }
+
+            ctx.putImageData(imageData, 0, 0);
+
+            if (isSelecting) {
+                ctx.strokeStyle = 'red';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(startX, startY, endX - startX, endY - startY);
+            }
+        }
+
+        function isPurple(r, g, b) {
+            // Ваша умова для пурпурового кольору
+            return r > 180 && b > 180 && g < 150;
+        }
+
+        function rgbToCmyk(r, g, b) {
+            const c = 1 - r / 255;
+            const m = 1 - g / 255;
+            const y = 1 - b / 255;
+            const k = Math.min(c, m, y);
+            return [c, m, y, k];
+        }
+
+        function cmykToRgb(cmyk) {
+            const [c, m, y, k] = cmyk;
+            const newR = 255 * (1 - c) * (1 - k);
+            const newG = 255 * (1 - m) * (1 - k);
+            const newB = 255 * (1 - y) * (1 - k);
+            return [newR, newG, newB];
+        }
+
+        function adjustSaturation(cmyk, saturation) {
+            const [c, m, y, k] = cmyk;
+            const max = Math.max(c, m, y);
+            const delta = max - k;
+            const adjustedC = c - delta * (1 - saturation / 100);
+            const adjustedM = m - delta * (1 - saturation / 100);
+            const adjustedY = y - delta * (1 - saturation / 100);
+            return [adjustedC, adjustedM, adjustedY, k];
+        }
+
+        saturationInput.addEventListener('input', () => {
+            updateCanvas(saturationInput.value);
+        });
+
+        canvas.addEventListener('mousedown', (e) => {
+            isSelecting = true;
+            startX = e.offsetX;
+            startY = e.offsetY;
+            displayColorInfo(e.offsetX, e.offsetY);
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            isSelecting = false;
+            updateCanvas(saturationInput.value);
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (isSelecting) {
+                endX = e.offsetX;
+                endY = e.offsetY;
+                displayColorInfo(e.offsetX, e.offsetY);
+                updateCanvas(saturationInput.value);
+            }
+        });
+
+        function isInsideSelection(i) {
+            const x = (i / 4) % canvas.width;
+            const y = Math.floor((i / 4) / canvas.width);
+            return x >= startX && x <= endX && y >= startY && y <= endY;
+        }
+
+        function displayColorInfo(x, y) {
+            const pixel = ctx.getImageData(x, y, 1, 1).data;
+            const r = pixel[0];
+            const g = pixel[1];
+            const b = pixel[2];
+            const hsv = rgbToHsv(r, g, b);
+            const cmyk = rgbToCmyk(r, g, b);
+
+            colorInfo.innerHTML = `HSV: (${hsv[0].toFixed(2)}, ${hsv[1].toFixed(2)}, ${hsv[2].toFixed(2)})<br>
+                                  CMYK: (${cmyk[0].toFixed(2)}, ${cmyk[1].toFixed(2)}, ${cmyk[2].toFixed(2)}, ${cmyk[3].toFixed(2)})`;
+        }
+
+        function rgbToHsv(r, g, b) {
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            const d = max - min;
+            let h, s, v;
+
+            if (d === 0) {
+                h = 0;
+            } else if (max === r) {
+                h = ((g - b) / d) % 6;
+            } else if (max === g) {
+                h = (b - r) / d + 2;
+            } else {
+                h = (r - g) / d + 4;
+            }
+
+            h = Math.round(h * 60);
+            if (h < 0) {
+                h += 360;
+            }
+
+            s = max === 0 ? 0 : d / max;
+            v = max / 255;
+
+            return [h, s, v];
+        }
+    </script>
+</body>
+</html>
